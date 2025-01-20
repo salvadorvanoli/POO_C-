@@ -1,0 +1,19 @@
+Parte 2: dependencias circulares
+
+(1)
+
+Las dependencias que generaban circularidad eran las bidireccionales:
+
+A depende bidireccionalmente de B
+B depende bidireccionalmente de C
+A depende bidireccionalmente de C
+
+Ya que en todos estos casos al uno depender del otro y el otro depender del  uno, el compilador no sabía resolver el orden de compilcación y quedaba atascado.
+
+Para solucionar este problema utilizamos forward declarations y ordenamos los include de los encabezados (.h) de las distintas clases, permitiendo al compilador romper el bucle. 
+
+(2)
+
+Basicamente, una forward declaration consiste en declrarar una variable, funcion o tipo sin definir su implementación.
+
+De esta forma, el compilador es capaz de identificarla antes de encontrarse a su implementacion. Generalmente, este método es utilizado para manejar dependencias circulares, como las vistas en este ejercicio.
